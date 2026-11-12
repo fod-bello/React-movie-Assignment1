@@ -9,6 +9,7 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
+import MovieRecommendations from "../movieRecommendations";
 
 
 const root = {
@@ -91,7 +92,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
-
+      <MovieRecommendations movie={movie} />
       </>
   );
 };
