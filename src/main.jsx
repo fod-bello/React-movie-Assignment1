@@ -10,7 +10,8 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
-import PopularPage from "./pages/popularPage"
+import PopularPage from "./pages/popularPage";
+import TopRatedPage from "./pages/topRatedPage";
 
 
 const queryClient = new QueryClient({
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={<Navigate to="/" />} />
             <Route path="/movies/popular" element={<PopularPage />} />
+            <Route path="/movies/top-rated" element={<TopRatedPage />} />
           </Routes>
         </MoviesContextProvider>
       </BrowserRouter>
