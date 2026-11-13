@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
 import MovieRecommendations from "../movieRecommendations";
+import MovieCredits from "../movieCredits";
 
 
 const root = {
@@ -93,6 +94,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
         <MovieReviews movie={movie} />
       </Drawer>
       <MovieRecommendations movie={movie} />
+      <MovieCredits movie={movie} />
       </>
   );
 };
