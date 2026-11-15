@@ -7,6 +7,7 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
+import {Link} from "react-router";
 
 const MovieCredits = ({ movie }) => {
   const { data: credits, error, isPending, isError } = useQuery({
@@ -48,9 +49,18 @@ const MovieCredits = ({ movie }) => {
               )}
 
               <CardContent>
-                <Typography variant="subtitle1">
-                  {actor.name}
-                </Typography>
+                <Typography
+                   variant="subtitle1"
+                 component={Link}
+                 to={`/actors/${actor.id}`}
+                 sx={{
+                 textDecoration: "none",
+                 color: "primary.main",
+                 fontWeight: "bold",
+                   }}
+                          >
+                           {actor.name}
+                          </Typography>
 
                 <Typography variant="body2" color="text.secondary">
                   {actor.character}
