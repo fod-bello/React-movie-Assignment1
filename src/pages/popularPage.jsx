@@ -4,6 +4,7 @@ import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from "../components/spinner";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
+import AddToPlaylistIcon from "../components/cardIcons/addToPlaylist";
 
 const PopularPage = () => {
   const { data: movies, error, isPending, isError } = useQuery({
@@ -24,8 +25,13 @@ const PopularPage = () => {
       title="Popular Movies"
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />;
-      }}
+  return (
+    <>
+      <AddToFavoritesIcon movie={movie} />
+      <AddToPlaylistIcon movie={movie} />
+    </>
+  );
+}}
     />
   );
 };
