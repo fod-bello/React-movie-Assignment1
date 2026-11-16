@@ -1,9 +1,9 @@
-
 import { getNowPlayingMovies } from "../api/tmdb-api";
 import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from "../components/spinner";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
+import AddToPlaylistIcon from "../components/cardIcons/addToPlaylist";
 
 const NowPlayingPage = () => {
   const { data: movies, error, isPending, isError } = useQuery({
@@ -24,8 +24,13 @@ const NowPlayingPage = () => {
       title="Now Playing Movies"
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />;
-      }}
+  return (
+    <>
+      <AddToFavoritesIcon movie={movie} />
+      <AddToPlaylistIcon movie={movie} />
+    </>
+  );
+}}
     />
   );
 };
