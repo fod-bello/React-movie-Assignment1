@@ -31,7 +31,13 @@ export default function MovieCard({ movie, action }) {
   };
   
   return (
-    <Card>
+    <Card
+  sx={{
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
       <CardHeader
         avatar={
           movie.favorite ? (
@@ -41,20 +47,36 @@ export default function MovieCard({ movie, action }) {
           ) : null
         }
         title={
-          <Typography variant="h5" component="p">
-            {movie.title}{" "}
-          </Typography>
+          <Typography
+  variant="h6"
+  component="p"
+  sx={{
+    fontWeight: "bold",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: "vertical",
+  }}
+>
+  {movie.title}
+</Typography>
         }
       />
       <CardMedia
-        sx={{ height: 500 }}
+  sx={{
+    height: 420,
+    width: "100%",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
         image={
           movie.poster_path
             ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
             : img
         }
       />
-      <CardContent>
+      <CardContent sx ={{flexGrow: 1}}>
         <Grid container>
           <Grid size={{xs: 6}}>
             <Typography variant="h6" component="p">
@@ -70,7 +92,15 @@ export default function MovieCard({ movie, action }) {
           </Grid>
         </Grid>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions
+  disableSpacing
+  sx={{
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 1,
+    padding: 2,
+  }}
+>
         
         {action(movie)}
         
